@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Eduarda Vergueiro</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Canvas for particle bg -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Lang toggle -->
+  <div class="lang-bar">
+    <button class="lang-btn active" data-lang="pt" onclick="setLang('pt')">
+      <span class="flag">🇧🇷</span> Português
+    </button>
+    <span class="lang-divider">·</span>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">
+      <span class="flag">🇺🇸</span> English
+    </button>
+  </div>
+
+  <main class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="avatar-wrap">
+        <div class="avatar-ring"></div>
+        <div class="avatar-ring ring-2"></div>
+        <img class="avatar-img" src="./perfil.jpeg" alt="Profile picture" />
+      </div>
+
+      <div class="hero-text">
+        <p class="hero-label" data-pt="estudande de ciência da computação @ CEFET-RJ" data-en="cs student @ CEFET-RJ">
+          estudande de ciência da computação @ CEFET-RJ</p>
+        <h1 class="hero-name">Eduarda Vergueiro</h1>
+        <p class="hero-sub" data-pt="Estagiária de Análise de Dados @ Firjan :>"
+          data-en="Data Analyst Intern @ Firjan :>"></p>
+
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          <span data-pt="aberta a oportunidades" data-en="open to opportunities">aberta a oportunidades</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TWO-COLUMN BODY -->
+    <div class="body-grid">
+
+      <!-- LEFT: bio + terminal -->
+      <div class="col-left">
+
+        <section class="bio-card card">
+          <p class="bio-text"
+            data-pt="Oioi! Estudo Ciência da Computação no CEFET-RJ, estagio na área de dados e desenvolvimento de IA na Firjan. Além disso, sou bolsista na Iniciação Científica do Projeto Lumen, onde aprendo AWS e Machine Learning na prática! Já atuei como monitora de Lógica de Programação e, recentemente, venci a Hackathon do IEEE CSBS! :D"
+            data-en="Hi! I study Computer Science at CEFET-RJ, and I'm an intern in data and AI development at Firjan. Additionally, I'm a research fellow in the Lumen Project, where I'm learning AWS and Machine Learning hands-on! I've previously worked as a Programming Logic TA and recently won the IEEE CSBS Hackathon! :D">
+            Oioi! Estudo Ciência da Computação no CEFET-RJ, estagio na área de dados e desenvolvimento de IA na Firjan.
+            Além disso, sou bolsista na Iniciação Científica do Projeto Lumen, onde aprendo AWS e Machine Learning na
+            prática! Já atuei como monitora de Lógica de Programação e, recentemente, venci a Hackathon do IEEE CSBS! :D
+          </p>
+        </section>
+
+        <section class="terminal-wrap">
+          <div class="terminal-bar">
+            <span class="t-dot" style="background:#ff5f57"></span>
+            <span class="t-dot" style="background:#febc2e"></span>
+            <span class="t-dot" style="background:#28c840"></span>
+            <span class="t-title" data-pt="terminal: tente digitar algo"
+              data-en="terminal: try typing something">terminal: tente digitar algo</span>
+          </div>
+          <div class="terminal-body" id="terminal-body">
+            <div class="t-line">
+              <span class="t-prompt">~$</span>
+              <span id="typed-cmd" class="t-cmd"></span>
+              <span class="cursor">█</span>
+            </div>
+            <div id="terminal-output"></div>
+          </div>
+          <input type="text" id="terminal-input" class="terminal-input-hidden" autocomplete="off" autocorrect="off"
+            autocapitalize="off" spellcheck="false" />
+          <p class="terminal-hint" data-pt='clique aqui e pressione Enter — tente "help"'
+            data-en='click here and press Enter — try "help"'>
+            clique aqui e pressione Enter — tente "help"
+          </p>
+        </section>
+
+      </div>
+
+      <!-- RIGHT: contact + social -->
+      <div class="col-right">
+
+        <section class="section-label">
+          <span data-pt="contato" data-en="contact">contato</span>
+        </section>
+
+        <a href="mailto:eduardavergueiro7@gmail.com" class="link-card card">
+          <div class="link-icon"><i class="ph-bold ph-envelope"></i></div>
+          <div class="link-info">
+            <span class="link-title">EMAIL</span>
+            <span class="link-sub">eduardavergueiro7@gmail.com</span>
+          </div>
+          <i class="ph ph-arrow-up-right link-arrow"></i>
+        </a>
+
+        <section class="section-label">
+          <span data-pt="redes" data-en="links">redes</span>
+        </section>
+
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener" class="link-card card">
+          <div class="link-icon"><i class="ph-bold ph-github-logo"></i></div>
+          <div class="link-info">
+            <span class="link-title">GITHUB</span>
+            <span class="link-sub" data-pt="projetos & contribuições" data-en="projects & contributions">projetos &
+              contribuições</span>
+          </div>
+          <i class="ph ph-arrow-up-right link-arrow"></i>
+        </a>
+
+        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener" class="link-card card">
+          <div class="link-icon"><i class="ph-bold ph-linkedin-logo"></i></div>
+          <div class="link-info">
+            <span class="link-title">LINKEDIN</span>
+            <span class="link-sub" data-pt="vamos nos conectar" data-en="let's connect">vamos nos conectar</span>
+          </div>
+          <i class="ph ph-arrow-up-right link-arrow"></i>
+        </a>
+
+        <!-- Cat Icon -->
+        <div class="cat-wrapper" onclick="showCatMessage()">
+          <div class="cat-message" id="cat-msg">&lt;3</div>
+          <i class="ph-bold ph-cat"></i>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      © 2026 Eduarda Vergueiro &lt;3
+    </footer>
+
+  </main>
+
+  <script src="particles.js"></script>
+  <script src="terminal.js"></script>
+  <script src="main.js"></script>
+  <script>
+    function showCatMessage() {
+      const msg = document.getElementById('cat-msg');
+      msg.classList.add('show');
+      setTimeout(() => {
+        msg.classList.remove('show');
+      }, 2000);
+    }
+  </script>
+</body>
+
+</html>
