@@ -116,9 +116,13 @@
   });
   inputEl.addEventListener('blur', () => wrap.classList.remove('active'));
 
-  // ---- Mirror typing to display ----
+  // ---- Mirror typing to display (handle IME composition on mobile) ----
+  let _isComposing = false;
+  inputEl.addEventListener('compositionstart', () => { _isComposing = true; });
+  inputEl.addEventListener('compositionupdate', () => { typedCmd.textContent = inputEl.value; });
+  inputEl.addEventListener('compositionend', () => { _isComposing = false; typedCmd.textContent = inputEl.value; });
   inputEl.addEventListener('input', () => {
-    typedCmd.textContent = inputEl.value;
+    if (!_isComposing) typedCmd.textContent = inputEl.value;
   });
 
   // ---- Handle key events ----
